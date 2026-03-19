@@ -133,26 +133,28 @@ Creating such an automation involves two steps:
 
 Before you can send your vacuum to clean specific areas, you need to map the areas of your vacuum to the areas in Home Assistant.
 
-1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select your vacuum entity.
-2. In the entity settings, select the cogwheel {% icon "mdi:cog-outline" %}.
-3. Select **Map vacuum segments to areas**.
+1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
+2. Select your vacuum entity.
+3. In the entity settings, select the cogwheel {% icon "mdi:cog-outline" %}.
+4. Select **Map vacuum segments to areas**.
    - Result: In the dialog, you should see the vacuum areas listed on the left and the Home Assistant areas on the right.
    - If you do not see the **Map vacuum segments to areas** option, your vacuum does not support area cleaning. You cannot use the `vacuum.clean_area` action with this vacuum.
    - Troubleshooting: If there are no areas listed on the left, make sure the areas are properly set up in the vacuum's app. You might need to save or confirm them again in the app.
-4. In the **Map vacuum segments to areas** dialog, for each area reported by your vacuum, select the corresponding Home Assistant area.
-5. Select **Save**.
+5. In the **Map vacuum segments to areas** dialog, for each area reported by your vacuum, select the corresponding Home Assistant area.
+6. Select **Save**.
 
 ### Sending your vacuum to clean specific areas
 
 Once you have the areas mapped, you can send your vacuum to clean specific areas using the `vacuum.clean_area` action.
 
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create automation**.
-2. Set up your trigger. For example, you can use a time trigger to have the vacuum clean every day at 2 PM.
-3. Select **Add action** and under **Targets**, search for `vacuum` and select the `vacuum.clean_area` action.
-4. Under **Targets**, select your vacuum entity.
-5. Under **Area**, select the area to clean. You can select multiple areas.
-6. Give your automation a name and select **Save**.
-7. Test your automation by selecting **Run actions**. Your vacuum should start cleaning the specified areas.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Select **Create automation**.
+3. Set up your trigger. For example, you can use a time trigger to have the vacuum clean every day at 2 PM.
+4. Select **Add action** and under **Targets**, search for `vacuum` and select the `vacuum.clean_area` action.
+5. Under **Targets**, select your vacuum entity.
+6. Under **Area**, select the area to clean. You can select multiple areas.
+7. Give your automation a name and select **Save**.
+8. Test your automation by selecting **Run actions**. Your vacuum should start cleaning the specified areas.
 
 ## Triggers
 
@@ -165,19 +167,30 @@ If a device goes offline and reconnects (transitioning from `unavailable` or `un
 
 ### Creating an automation with a vacuum trigger
 
-This example creates an automation that sends a notification when both your downstairs and upstairs vacuums have finished cleaning and docked.
+To create an automation that uses a vacuum trigger:
 
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create automation**.
-2. Select **Create new automation**.
-3. Select **Add trigger**, then in the **Search trigger** field, enter `vacuum returned`.
-4. From the list, select **Vacuum returned to dock**.
-5. Under **Target**, select the entities you want to monitor:
-   - To monitor specific entities, select **vacuum.downstairs** and **vacuum.upstairs**.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Select **Create automation** > **Create new automation**.
+3. In the **When** section, select **Add trigger**.
+4. From the search box, select a vacuum trigger.
+5. Under **Targets**:
+   - To monitor specific entities, select the entities.
    - To monitor all vacuum entities in an area or a floor, select the area or floor.
-6. Under **Options**, set **Behavior**.
-   - For example, if you select **Last**, the automation only fires after both vacuums have docked.
+6. Under **Behavior**, select how the automation triggers:
+   - **First**: if monitoring multiple vacuums, the automation only fires when one of them has completed the action.
+     The next ones don't trigger the automation.
+   - **Last**: if monitoring multiple vacuums, the automation only fires after both vacuums have completed the action.
+   - **Any**: the automation fires whenever a monitored vacuum returns to dock.
 7. In the **Then do** section, select **Add action** and choose your preferred notification action.
 8. Select **Save** and give your automation a meaningful name.
+
+For example, to create an automation that sends a mobile notification when both your upstairs and downstairs vacuums have finished cleaning and docked, select the following:
+
+- **Trigger**: Vacuum returned to dock
+  - **Target**: `Upstairs vacuum` and `Downstairs vacuum`
+  - **Behavior**: Last
+- **Action**: Notifications: Send a notification via mobile app
+  - **Message**: Both vacuums have finished cleaning and docked.
 
 {% details "YAML example for this automation" %}
 
@@ -207,8 +220,8 @@ The `vacuum.docked` trigger fires when the vacuum cleaner docks.
 
 For example, to trigger the automation after both of your vacuums dock, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
-- **Trigger**: `vacuum.docked`
-- **Target**: `vacuum.my_robot` and `vacuum.second_floor`
+- **Trigger**: Vacuum returned to dock
+- **Target**: `Upstairs vacuum` and `Downstairs vacuum`
 - **Behavior**: **Last**
 
 {% details "YAML example for this trigger" %}
@@ -219,8 +232,8 @@ automation:
     - trigger: vacuum.docked
       target:
         entity_id:
-          - vacuum.my_robot
-          - vacuum.second_floor
+          - vacuum.upstairs
+          - vacuum.downstairs
       options:
         behavior: last
 ```
@@ -240,8 +253,8 @@ The `vacuum.errored` trigger fires when the vacuum cleaner encounters an error.
 
 For example, to trigger the automation as soon as one of the vacuums reports an error, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
-- **Trigger**: `vacuum.errored`
-- **Target**: `vacuum.my_robot` and `vacuum.second_floor`
+- **Trigger**: Vacuum encountered an error
+- **Target**: `Upstairs vacuum` and `Downstairs vacuum`
 - **Behavior**: **First**
 
 {% details "YAML example for this trigger" %}
@@ -252,8 +265,8 @@ automation:
     - trigger: vacuum.errored
       target:
         entity_id:
-          - vacuum.my_robot
-          - vacuum.second_floor
+          - vacuum.upstairs
+          - vacuum.downstairs
       options:
         behavior: first
 ```
@@ -273,8 +286,8 @@ The `vacuum.paused_cleaning` trigger fires when the vacuum cleaner pauses its cl
 
 For example, to trigger the automation as soon as one of the vacuums pauses cleaning, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
-- **Trigger**: `vacuum.paused_cleaning`
-- **Target**: `vacuum.my_robot` and `vacuum.second_floor`
+- **Trigger**: Vacuum cleaner paused cleaning
+- **Target**: `Upstairs vacuum` and `Downstairs vacuum`
 - **Behavior**: **First**
 
 {% details "YAML example for this trigger" %}
@@ -285,8 +298,8 @@ automation:
     - trigger: vacuum.paused_cleaning
       target:
         entity_id:
-          - vacuum.my_robot
-          - vacuum.second_floor
+          - vacuum.upstairs
+          - vacuum.downstairs
       options:
         behavior: first
 ```
@@ -306,8 +319,8 @@ The `vacuum.started_cleaning` trigger fires when the vacuum cleaner begins a cle
 
 For example, to trigger the automation as soon as one of the vacuums starts cleaning, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
-- **Trigger**: `vacuum.started_cleaning`
-- **Target**: `vacuum.my_robot` and `vacuum.second_floor`
+- **Trigger**: Vacuum cleaner started cleaning
+- **Target**: `Upstairs vacuum` and `Downstairs vacuum`
 - **Behavior**: **First**
 
 {% details "YAML example for this trigger" %}
@@ -318,8 +331,8 @@ automation:
     - trigger: vacuum.started_cleaning
       target:
         entity_id:
-          - vacuum.my_robot
-          - vacuum.second_floor
+          - vacuum.upstairs
+          - vacuum.downstairs
       options:
         behavior: first
 ```
@@ -339,8 +352,8 @@ The `vacuum.started_returning` trigger fires when the vacuum cleaner starts head
 
 For example, to trigger the automation as soon as one of the vacuums starts returning to the dock, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
-- **Trigger**: `vacuum.started_returning`
-- **Target**: `vacuum.my_robot` and `vacuum.second_floor`
+- **Trigger**: Vacuum cleaner started returning to dock
+- **Target**: `Upstairs vacuum` and `Downstairs vacuum`
 - **Behavior**: **First**
 
 {% details "YAML example for this trigger" %}
@@ -351,8 +364,8 @@ automation:
     - trigger: vacuum.started_returning
       target:
         entity_id:
-          - vacuum.my_robot
-          - vacuum.second_floor
+          - vacuum.upstairs
+          - vacuum.downstairs
       options:
         behavior: first
 ```
@@ -378,8 +391,8 @@ The `vacuum.is_cleaning` condition passes when the vacuum cleaner is cleaning.
 
 For example, to let the automation continue only when both vacuums are cleaning, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
-- **Condition**: `vacuum.is_cleaning`
-- **Target**: `vacuum.my_robot` and `vacuum.second_floor`
+- **Condition**: Vacuum cleaner is cleaning
+- **Target**: `Upstairs vacuum` and `Downstairs vacuum`
 - **Behavior**: **All**
 
 {% details "YAML example for this condition" %}
@@ -390,8 +403,8 @@ automation:
     - condition: vacuum.is_cleaning
       target:
         entity_id:
-          - vacuum.my_robot
-          - vacuum.second_floor
+          - vacuum.upstairs
+          - vacuum.downstairs
       options:
         behavior: all
 ```
@@ -411,8 +424,8 @@ The `vacuum.is_docked` condition passes when the vacuum cleaner is docked.
 
 For example, to let the automation continue only when both vacuums are docked, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
-- **Condition**: `vacuum.is_docked`
-- **Target**: `vacuum.my_robot` and `vacuum.second_floor`
+- **Condition**: Vacuum cleaner is docked
+- **Target**: `Upstairs vacuum` and `Downstairs vacuum`
 - **Behavior**: **All**
 
 {% details "YAML example for this condition" %}
@@ -423,8 +436,8 @@ automation:
     - condition: vacuum.is_docked
       target:
         entity_id:
-          - vacuum.my_robot
-          - vacuum.second_floor
+          - vacuum.upstairs
+          - vacuum.downstairs
       options:
         behavior: all
 ```
@@ -444,8 +457,8 @@ The `vacuum.is_encountering_an_error` condition passes when the vacuum cleaner i
 
 For example, to let the automation continue only when both vacuums are in an error state, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
-- **Condition**: `vacuum.is_encountering_an_error`
-- **Target**: `vacuum.my_robot` and `vacuum.second_floor`
+- **Condition**: Vacuum cleaner is encountering an error
+- **Target**: `Upstairs vacuum` and `Downstairs vacuum`
 - **Behavior**: **All**
 
 {% details "YAML example for this condition" %}
@@ -456,8 +469,8 @@ automation:
     - condition: vacuum.is_encountering_an_error
       target:
         entity_id:
-          - vacuum.my_robot
-          - vacuum.second_floor
+          - vacuum.upstairs
+          - vacuum.downstairs
       options:
         behavior: all
 ```
@@ -477,8 +490,8 @@ The `vacuum.is_paused` condition passes when the vacuum cleaner is paused.
 
 For example, to let the automation continue only when both vacuums are paused, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
-- **Condition**: `vacuum.is_paused`
-- **Target**: `vacuum.my_robot` and `vacuum.second_floor`
+- **Condition**: Vacuum cleaner is paused
+- **Target**: `Upstairs vacuum` and `Downstairs vacuum`
 - **Behavior**: **All**
 
 {% details "YAML example for this condition" %}
@@ -489,8 +502,8 @@ automation:
     - condition: vacuum.is_paused
       target:
         entity_id:
-          - vacuum.my_robot
-          - vacuum.second_floor
+          - vacuum.upstairs
+          - vacuum.downstairs
       options:
         behavior: all
 ```
@@ -510,8 +523,8 @@ The `vacuum.is_returning` condition passes when the vacuum cleaner is returning 
 
 For example, to let the automation continue only when both vacuums are returning to the dock, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
-- **Condition**: `vacuum.is_returning`
-- **Target**: `vacuum.my_robot` and `vacuum.second_floor`
+- **Condition**: Vacuum cleaner is returning
+- **Target**: `Upstairs vacuum` and `Downstairs vacuum`
 - **Behavior**: **All**
 
 {% details "YAML example for this condition" %}
@@ -522,8 +535,8 @@ automation:
     - condition: vacuum.is_returning
       target:
         entity_id:
-          - vacuum.my_robot
-          - vacuum.second_floor
+          - vacuum.upstairs
+          - vacuum.downstairs
       options:
         behavior: all
 ```
