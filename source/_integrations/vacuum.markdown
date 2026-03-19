@@ -44,7 +44,7 @@ Available actions:
 
 Before calling one of these actions, make sure your vacuum platform supports it.
 
-### Action: Start
+### Start
 
 The `vacuum.start` action starts or resumes a cleaning task.
 
@@ -52,7 +52,7 @@ The `vacuum.start` action starts or resumes a cleaning task.
 | -------------- | -------- | ----------- |
 | `entity_id`    | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
 
-### Action: Pause
+### Pause
 
 The `vacuum.pause` action pauses a cleaning task.
 
@@ -60,7 +60,7 @@ The `vacuum.pause` action pauses a cleaning task.
 | -------------- | -------- | ----------- |
 | `entity_id`    | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
 
-### Action: Stop
+### Stop
 
 The `vacuum.stop` action stops the current activity of the vacuum.
 
@@ -68,7 +68,7 @@ The `vacuum.stop` action stops the current activity of the vacuum.
 | -------------- | -------- | ----------- |
 | `entity_id`    | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
 
-### Action: Return to base
+### Return to base
 
 The `vacuum.return_to_base` action tells the vacuum to return home.
 
@@ -76,7 +76,7 @@ The `vacuum.return_to_base` action tells the vacuum to return home.
 | -------------- | -------- | ----------- |
 | `entity_id`    | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
 
-### Action: Locate
+### Locate
 
 The `vacuum.locate` action locates the vacuum cleaner robot.
 
@@ -84,7 +84,7 @@ The `vacuum.locate` action locates the vacuum cleaner robot.
 | -------------- | -------- | ----------- |
 | `entity_id`    | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
 
-### Action: Clean spot
+### Clean spot
 
 The `vacuum.clean_spot` action tells the vacuum cleaner to do a spot clean-up.
 
@@ -92,7 +92,7 @@ The `vacuum.clean_spot` action tells the vacuum cleaner to do a spot clean-up.
 | -------------- | -------- | ----------- |
 | `entity_id`    | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
 
-### Action: Clean area
+### Clean area
 
 The `vacuum.clean_area` action tells the vacuum to clean one or more Home Assistant areas. To use this action, the vacuum's [segments must first be mapped to areas](#mapping-your-vacuum-areas-to-home-assistant-areas).
 
@@ -101,7 +101,7 @@ The `vacuum.clean_area` action tells the vacuum to clean one or more Home Assist
 | `entity_id`        | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
 | `cleaning_area_id` | no       | List of areas for the vacuum to clean. |
 
-### Action: Set fan speed
+### Set fan speed
 
 The `vacuum.set_fan_speed` action sets the fan speed of the vacuum. The `fanspeed` can be a label, as `balanced` or `turbo`, or be a number; it depends on the `vacuum` platform.
 
@@ -110,7 +110,7 @@ The `vacuum.set_fan_speed` action sets the fan speed of the vacuum. The `fanspee
 | `entity_id`    | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
 | `fan_speed`    | no       | Platform dependent vacuum cleaner fan speed, with speed steps, like 'medium', or by percentage, between 0 and 100. |
 
-### Action: Send command
+### Send command
 
 The `vacuum.send_command` action sends a platform-specific command to the vacuum cleaner.
 
@@ -163,7 +163,7 @@ The vacuum {% term integration %} provides purpose-specific [automation triggers
 These triggers only fire when the entity transitions from a known, valid state.
 If a device goes offline and reconnects (transitioning from `unavailable` or `unknown` back to an active state), the trigger does not execute for that recovery.
 
-### Example: Creating a vacuum trigger
+### Creating a vacuum trigger
 
 This example creates an automation that sends a notification when both your downstairs and upstairs vacuums have finished cleaning and docked.
 
@@ -179,7 +179,7 @@ This example creates an automation that sends a notification when both your down
 7. In the **Then do** section, select **Add action** and choose your preferred notification action.
 8. Select **Save** and give your automation a meaningful name.
 
-{% details "Expand YAML for this automation" %}
+{% details "YAML example for this automation" %}
 
 ```yaml
 automation:
@@ -199,7 +199,7 @@ automation:
 
 {% enddetails %}
 
-### Trigger: Vacuum returned to dock
+### Vacuum returned to dock
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -227,7 +227,7 @@ automation:
     - **Description**: Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum docks), `first` (fires only when the first targeted vacuum docks), `last` (fires only after the last targeted vacuum has docked).
     - **Optional**: Yes
 
-### Trigger: Vacuum encountered an error
+### Vacuum encountered an error
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -255,7 +255,7 @@ automation:
     - **Description**: Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum encounters an error), `first` (fires only when the first targeted vacuum encounters an error), `last` (fires only after the last targeted vacuum has encountered an error).
     - **Optional**: Yes
 
-### Trigger: Vacuum cleaner paused cleaning
+### Vacuum paused cleaning
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -283,7 +283,7 @@ automation:
     - **Description**: Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum pauses cleaning), `first` (fires only when the first targeted vacuum pauses cleaning), `last` (fires only after the last targeted vacuum has paused cleaning).
     - **Optional**: Yes
 
-### Trigger: Vacuum cleaner started cleaning
+### Vacuum started cleaning
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -311,7 +311,7 @@ automation:
     - **Description**: Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum starts cleaning), `first` (fires only when the first targeted vacuum starts cleaning), `last` (fires only after the last targeted vacuum has started cleaning).
     - **Optional**: Yes
 
-### Trigger: Vacuum cleaner started returning to dock
+### Vacuum started returning to dock
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -345,7 +345,7 @@ The vacuum {% term integration %} provides purpose-specific [automation conditio
 
 Entities that are `unavailable` or `unknown` are excluded from the check. With `behavior: any` (the default), the condition fails if all targeted entities are `unavailable` or `unknown`. With `behavior: all`, the condition passes if all targeted entities are `unavailable` or `unknown`.
 
-### Condition: Vacuum cleaner is cleaning
+### Vacuum is cleaning
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -373,7 +373,7 @@ automation:
     - **Description**: How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is cleaning), `all` (passes only if all targeted vacuums are cleaning).
     - **Optional**: Yes
 
-### Condition: Vacuum cleaner is docked
+### Vacuum is docked
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -401,7 +401,7 @@ automation:
     - **Description**: How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is docked), `all` (passes only if all targeted vacuums are docked).
     - **Optional**: Yes
 
-### Condition: Vacuum cleaner is encountering an error
+### Vacuum is encountering an error
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -429,7 +429,7 @@ automation:
     - **Description**: How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is in an error state), `all` (passes only if all targeted vacuums are in an error state).
     - **Optional**: Yes
 
-### Condition: Vacuum cleaner is paused
+### Vacuum is paused
 
 {% include integrations/labs_entity_triggers_note.md %}
 
@@ -457,7 +457,7 @@ automation:
     - **Description**: How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is paused), `all` (passes only if all targeted vacuums are paused).
     - **Optional**: Yes
 
-### Condition: Vacuum cleaner is returning
+### Vacuum is returning
 
 {% include integrations/labs_entity_triggers_note.md %}
 
