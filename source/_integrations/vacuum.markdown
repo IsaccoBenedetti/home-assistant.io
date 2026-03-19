@@ -163,7 +163,7 @@ The vacuum {% term integration %} provides purpose-specific [automation triggers
 These triggers only fire when the entity transitions from a known, valid state.
 If a device goes offline and reconnects (transitioning from `unavailable` or `unknown` back to an active state), the trigger does not execute for that recovery.
 
-### Creating a vacuum trigger
+### Creating an automation with a vacuum trigger
 
 This example creates an automation that sends a notification when both your downstairs and upstairs vacuums have finished cleaning and docked.
 
@@ -205,7 +205,13 @@ automation:
 
 The `vacuum.docked` trigger fires when the vacuum cleaner docks.
 
-The following example triggers the automation only after both targeted vacuums have docked:
+For example, to trigger the automation after both of your vacuums dock, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
+
+- **Trigger**: `vacuum.docked`
+- **Target**: `vacuum.my_robot` and `vacuum.second_floor`
+- **Behavior**: **Last**
+
+{% details "YAML example for this trigger" %}
 
 ```yaml
 automation:
@@ -219,13 +225,12 @@ automation:
         behavior: last
 ```
 
-- **`target`**
-  - **Description**: The `vacuum` entity to monitor.
-  - **Optional**: No
-- **`options`**
-  - **`behavior`**
-    - **Description**: Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum docks), `first` (fires only when the first targeted vacuum docks), `last` (fires only after the last targeted vacuum has docked).
-    - **Optional**: Yes
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `target`       | no       | The `vacuum` entity to monitor. |
+| `behavior`     | yes      | Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum docks), `first` (fires only when the first targeted vacuum docks), `last` (fires only after the last targeted vacuum has docked). |
+
+{% enddetails %}
 
 ### Vacuum encountered an error
 
@@ -233,7 +238,13 @@ automation:
 
 The `vacuum.errored` trigger fires when the vacuum cleaner encounters an error.
 
-The following example triggers the automation as soon as the first of the two targeted vacuums encounters an error:
+For example, to trigger the automation as soon as one of the vacuums reports an error, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
+
+- **Trigger**: `vacuum.errored`
+- **Target**: `vacuum.my_robot` and `vacuum.second_floor`
+- **Behavior**: **First**
+
+{% details "YAML example for this trigger" %}
 
 ```yaml
 automation:
@@ -247,13 +258,12 @@ automation:
         behavior: first
 ```
 
-- **`target`**
-  - **Description**: The `vacuum` entity to monitor.
-  - **Optional**: No
-- **`options`**
-  - **`behavior`**
-    - **Description**: Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum encounters an error), `first` (fires only when the first targeted vacuum encounters an error), `last` (fires only after the last targeted vacuum has encountered an error).
-    - **Optional**: Yes
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `target`       | no       | The `vacuum` entity to monitor. |
+| `behavior`     | yes      | Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum encounters an error), `first` (fires only when the first targeted vacuum encounters an error), `last` (fires only after the last targeted vacuum has encountered an error). |
+
+{% enddetails %}
 
 ### Vacuum paused cleaning
 
@@ -261,7 +271,13 @@ automation:
 
 The `vacuum.paused_cleaning` trigger fires when the vacuum cleaner pauses its cleaning run.
 
-The following example triggers the automation as soon as the first of the two targeted vacuums pauses cleaning:
+For example, to trigger the automation as soon as one of the vacuums pauses cleaning, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
+
+- **Trigger**: `vacuum.paused_cleaning`
+- **Target**: `vacuum.my_robot` and `vacuum.second_floor`
+- **Behavior**: **First**
+
+{% details "YAML example for this trigger" %}
 
 ```yaml
 automation:
@@ -275,13 +291,12 @@ automation:
         behavior: first
 ```
 
-- **`target`**
-  - **Description**: The `vacuum` entity to monitor.
-  - **Optional**: No
-- **`options`**
-  - **`behavior`**
-    - **Description**: Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum pauses cleaning), `first` (fires only when the first targeted vacuum pauses cleaning), `last` (fires only after the last targeted vacuum has paused cleaning).
-    - **Optional**: Yes
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `target`       | no       | The `vacuum` entity to monitor. |
+| `behavior`     | yes      | Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum pauses cleaning), `first` (fires only when the first targeted vacuum pauses cleaning), `last` (fires only after the last targeted vacuum has paused cleaning). |
+
+{% enddetails %}
 
 ### Vacuum started cleaning
 
@@ -289,7 +304,13 @@ automation:
 
 The `vacuum.started_cleaning` trigger fires when the vacuum cleaner begins a cleaning run.
 
-The following example triggers the automation as soon as the first of the two targeted vacuums starts cleaning:
+For example, to trigger the automation as soon as one of the vacuums starts cleaning, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
+
+- **Trigger**: `vacuum.started_cleaning`
+- **Target**: `vacuum.my_robot` and `vacuum.second_floor`
+- **Behavior**: **First**
+
+{% details "YAML example for this trigger" %}
 
 ```yaml
 automation:
@@ -303,13 +324,12 @@ automation:
         behavior: first
 ```
 
-- **`target`**
-  - **Description**: The `vacuum` entity to monitor.
-  - **Optional**: No
-- **`options`**
-  - **`behavior`**
-    - **Description**: Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum starts cleaning), `first` (fires only when the first targeted vacuum starts cleaning), `last` (fires only after the last targeted vacuum has started cleaning).
-    - **Optional**: Yes
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `target`       | no       | The `vacuum` entity to monitor. |
+| `behavior`     | yes      | Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum starts cleaning), `first` (fires only when the first targeted vacuum starts cleaning), `last` (fires only after the last targeted vacuum has started cleaning). |
+
+{% enddetails %}
 
 ### Vacuum started returning to dock
 
@@ -317,7 +337,13 @@ automation:
 
 The `vacuum.started_returning` trigger fires when the vacuum cleaner starts heading back to its dock.
 
-The following example triggers the automation as soon as the first of the two targeted vacuums starts returning to the dock:
+For example, to trigger the automation as soon as one of the vacuums starts returning to the dock, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
+
+- **Trigger**: `vacuum.started_returning`
+- **Target**: `vacuum.my_robot` and `vacuum.second_floor`
+- **Behavior**: **First**
+
+{% details "YAML example for this trigger" %}
 
 ```yaml
 automation:
@@ -331,13 +357,12 @@ automation:
         behavior: first
 ```
 
-- **`target`**
-  - **Description**: The `vacuum` entity to monitor.
-  - **Optional**: No
-- **`options`**
-  - **`behavior`**
-    - **Description**: Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum starts returning to the dock), `first` (fires only when the first targeted vacuum starts returning), `last` (fires only after the last targeted vacuum has started returning).
-    - **Optional**: Yes
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `target`       | no       | The `vacuum` entity to monitor. |
+| `behavior`     | yes      | Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum starts returning to the dock), `first` (fires only when the first targeted vacuum starts returning), `last` (fires only after the last targeted vacuum has started returning). |
+
+{% enddetails %}
 
 ## Conditions
 
@@ -351,7 +376,13 @@ Entities that are `unavailable` or `unknown` are excluded from the check. With `
 
 The `vacuum.is_cleaning` condition passes when the vacuum cleaner is cleaning.
 
-The following example passes only when both targeted vacuums are cleaning:
+For example, to let the automation continue only when both vacuums are cleaning, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
+
+- **Condition**: `vacuum.is_cleaning`
+- **Target**: `vacuum.my_robot` and `vacuum.second_floor`
+- **Behavior**: **All**
+
+{% details "YAML example for this condition" %}
 
 ```yaml
 automation:
@@ -365,13 +396,12 @@ automation:
         behavior: all
 ```
 
-- **`target`**
-  - **Description**: The `vacuum` entity to check.
-  - **Optional**: No
-- **`options`**
-  - **`behavior`**
-    - **Description**: How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is cleaning), `all` (passes only if all targeted vacuums are cleaning).
-    - **Optional**: Yes
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `target`       | no       | The `vacuum` entity to check. |
+| `behavior`     | yes      | How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is cleaning), `all` (passes only if all targeted vacuums are cleaning). |
+
+{% enddetails %}
 
 ### Vacuum is docked
 
@@ -379,7 +409,13 @@ automation:
 
 The `vacuum.is_docked` condition passes when the vacuum cleaner is docked.
 
-The following example passes only when both targeted vacuums are docked:
+For example, to let the automation continue only when both vacuums are docked, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
+
+- **Condition**: `vacuum.is_docked`
+- **Target**: `vacuum.my_robot` and `vacuum.second_floor`
+- **Behavior**: **All**
+
+{% details "YAML example for this condition" %}
 
 ```yaml
 automation:
@@ -393,13 +429,12 @@ automation:
         behavior: all
 ```
 
-- **`target`**
-  - **Description**: The `vacuum` entity to check.
-  - **Optional**: No
-- **`options`**
-  - **`behavior`**
-    - **Description**: How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is docked), `all` (passes only if all targeted vacuums are docked).
-    - **Optional**: Yes
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `target`       | no       | The `vacuum` entity to check. |
+| `behavior`     | yes      | How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is docked), `all` (passes only if all targeted vacuums are docked). |
+
+{% enddetails %}
 
 ### Vacuum is encountering an error
 
@@ -407,7 +442,13 @@ automation:
 
 The `vacuum.is_encountering_an_error` condition passes when the vacuum cleaner is in an error state.
 
-The following example passes only when both targeted vacuums are in an error state:
+For example, to let the automation continue only when both vacuums are in an error state, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
+
+- **Condition**: `vacuum.is_encountering_an_error`
+- **Target**: `vacuum.my_robot` and `vacuum.second_floor`
+- **Behavior**: **All**
+
+{% details "YAML example for this condition" %}
 
 ```yaml
 automation:
@@ -421,13 +462,12 @@ automation:
         behavior: all
 ```
 
-- **`target`**
-  - **Description**: The `vacuum` entity to check.
-  - **Optional**: No
-- **`options`**
-  - **`behavior`**
-    - **Description**: How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is in an error state), `all` (passes only if all targeted vacuums are in an error state).
-    - **Optional**: Yes
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `target`       | no       | The `vacuum` entity to check. |
+| `behavior`     | yes      | How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is in an error state), `all` (passes only if all targeted vacuums are in an error state). |
+
+{% enddetails %}
 
 ### Vacuum is paused
 
@@ -435,7 +475,13 @@ automation:
 
 The `vacuum.is_paused` condition passes when the vacuum cleaner is paused.
 
-The following example passes only when both targeted vacuums are paused:
+For example, to let the automation continue only when both vacuums are paused, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
+
+- **Condition**: `vacuum.is_paused`
+- **Target**: `vacuum.my_robot` and `vacuum.second_floor`
+- **Behavior**: **All**
+
+{% details "YAML example for this condition" %}
 
 ```yaml
 automation:
@@ -449,13 +495,12 @@ automation:
         behavior: all
 ```
 
-- **`target`**
-  - **Description**: The `vacuum` entity to check.
-  - **Optional**: No
-- **`options`**
-  - **`behavior`**
-    - **Description**: How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is paused), `all` (passes only if all targeted vacuums are paused).
-    - **Optional**: Yes
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `target`       | no       | The `vacuum` entity to check. |
+| `behavior`     | yes      | How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is paused), `all` (passes only if all targeted vacuums are paused). |
+
+{% enddetails %}
 
 ### Vacuum is returning
 
@@ -463,7 +508,13 @@ automation:
 
 The `vacuum.is_returning` condition passes when the vacuum cleaner is returning to the dock.
 
-The following example passes only when both targeted vacuums are returning to the dock:
+For example, to let the automation continue only when both vacuums are returning to the dock, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
+
+- **Condition**: `vacuum.is_returning`
+- **Target**: `vacuum.my_robot` and `vacuum.second_floor`
+- **Behavior**: **All**
+
+{% details "YAML example for this condition" %}
 
 ```yaml
 automation:
@@ -477,10 +528,9 @@ automation:
         behavior: all
 ```
 
-- **`target`**
-  - **Description**: The `vacuum` entity to check.
-  - **Optional**: No
-- **`options`**
-  - **`behavior`**
-    - **Description**: How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is returning to the dock), `all` (passes only if all targeted vacuums are returning to the dock).
-    - **Optional**: Yes
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `target`       | no       | The `vacuum` entity to check. |
+| `behavior`     | yes      | How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is returning to the dock), `all` (passes only if all targeted vacuums are returning to the dock). |
+
+{% enddetails %}
