@@ -1065,7 +1065,7 @@ Entity triggers, also called *purpose-specific triggers*, let you trigger automa
 
 Entity triggers allow you to target a specific entity, an area, a floor, or a label. This means you can trigger when any light in your living room turns on, without listing each light individually or creating a group first. When you add or remove devices in an area, your automations automatically stay in sync. This also makes your automations much easier to read at a glance, since the target makes the intent of the automation immediately clear.
 
-### About entity trigger YAML structure
+### Entity trigger YAML structure
 
 Entity triggers use the following YAML structure:
 
