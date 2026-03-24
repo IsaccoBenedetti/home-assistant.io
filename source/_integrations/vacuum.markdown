@@ -535,7 +535,8 @@ Before calling one of these actions, make sure your vacuum platform supports it.
 
 ### Start vacuum
 
-The `vacuum.start` action starts or resumes a cleaning task.
+The **Start** action starts or resumes a cleaning task.
+In YAML, refer to it with `vacuum.start`.
 
 - **Data attribute**: `entity_id`
   - **Description**: Only act on a specific vacuum. Use `entity_id: all` to target all vacuums.
@@ -543,7 +544,8 @@ The `vacuum.start` action starts or resumes a cleaning task.
 
 ### Pause vacuum
 
-The `vacuum.pause` action pauses a cleaning task.
+The **Pause** action pauses a cleaning task.
+In YAML, refer to it with `vacuum.pause`.
 
 - **Data attribute**: `entity_id`
   - **Description**: Only act on a specific vacuum. Use `entity_id: all` to target all vacuums.
@@ -551,7 +553,8 @@ The `vacuum.pause` action pauses a cleaning task.
 
 ### Stop vacuum
 
-The `vacuum.stop` action stops the current activity of the vacuum.
+The **Stop** action stops the current activity of the vacuum.
+In YAML, refer to it with `vacuum.stop`.
 
 - **Data attribute**: `entity_id`
   - **Description**: Only act on a specific vacuum. Use `entity_id: all` to target all vacuums.
@@ -559,7 +562,8 @@ The `vacuum.stop` action stops the current activity of the vacuum.
 
 ### Return vacuum to base
 
-The `vacuum.return_to_base` action tells the vacuum to return home.
+The **Return to base** action tells the vacuum to return home.
+In YAML, refer to it with `vacuum.return_to_base`.
 
 - **Data attribute**: `entity_id`
   - **Description**: Only act on a specific vacuum. Use `entity_id: all` to target all vacuums.
@@ -567,7 +571,8 @@ The `vacuum.return_to_base` action tells the vacuum to return home.
 
 ### Locate vacuum
 
-The `vacuum.locate` action locates the vacuum cleaner robot.
+The **Locate** action locates the vacuum cleaner robot.
+In YAML, refer to it with `vacuum.locate`.
 
 - **Data attribute**: `entity_id`
   - **Description**: Only act on a specific vacuum. Use `entity_id: all` to target all vacuums.
@@ -575,7 +580,8 @@ The `vacuum.locate` action locates the vacuum cleaner robot.
 
 ### Clean spot
 
-The `vacuum.clean_spot` action tells the vacuum cleaner to do a spot clean-up.
+The **Clean spot** action tells the vacuum cleaner to do a spot clean-up.
+In YAML, refer to it with `vacuum.clean_spot`.
 
 - **Data attribute**: `entity_id`
   - **Description**: Only act on a specific vacuum. Use `entity_id: all` to target all vacuums.
@@ -583,7 +589,9 @@ The `vacuum.clean_spot` action tells the vacuum cleaner to do a spot clean-up.
 
 ### Clean area
 
-The `vacuum.clean_area` action tells the vacuum to clean one or more Home Assistant areas. To use this action, the vacuum's [segments must first be mapped to areas](#mapping-your-vacuum-areas-to-home-assistant-areas).
+The **Clean area** action tells the vacuum to clean one or more Home Assistant areas.
+In YAML, refer to it with `vacuum.clean_area`.
+To use this action, the vacuum's [segments must first be mapped to areas](#mapping-your-vacuum-areas-to-home-assistant-areas).
 
 - **Data attribute**: `entity_id`
   - **Description**: Only act on a specific vacuum. Use `entity_id: all` to target all vacuums.
@@ -594,7 +602,9 @@ The `vacuum.clean_area` action tells the vacuum to clean one or more Home Assist
 
 ### Set vacuum fan speed
 
-The `vacuum.set_fan_speed` action sets the fan speed of the vacuum. The `fanspeed` can be a label, as `balanced` or `turbo`, or be a number; it depends on the `vacuum` platform.
+The **Set fan speed** action sets the fan speed of the vacuum.
+In YAML, refer to it with `vacuum.set_fan_speed`.
+The fan speed can be a label, such as `balanced` or `turbo`, or a number; it depends on the `vacuum` platform.
 
 - **Data attribute**: `entity_id`
   - **Description**: Only act on a specific vacuum. Use `entity_id: all` to target all vacuums.
@@ -605,7 +615,8 @@ The `vacuum.set_fan_speed` action sets the fan speed of the vacuum. The `fanspee
 
 ### Send command to vacuum
 
-The `vacuum.send_command` action sends a platform-specific command to the vacuum cleaner.
+The **Send command** action sends a platform-specific command to the vacuum cleaner.
+In YAML, refer to it with `vacuum.send_command`.
 
 - **Data attribute**: `entity_id`
   - **Description**: Only act on a specific vacuum. Use `entity_id: all` to target all vacuums.
