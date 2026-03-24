@@ -149,10 +149,15 @@ automation:
         behavior: last
 ```
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `target`       | no       | The `vacuum` entity to monitor. |
-| `behavior`     | yes      | Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum docks), `first` (fires only when the first targeted vacuum docks), `last` (fires only after the last targeted vacuum has docked). |
+- **Data attribute**: `target`
+  - **Description**: The `vacuum` entity to monitor.
+  - **Optional**: No
+- **Data attribute**: `behavior`
+  - **Description**: Controls which events trigger the automation when multiple vacuums are targeted. Options:
+    - `any` (fires every time any targeted vacuum docks)
+    - `first` (fires only when the first targeted vacuum docks)
+    - `last` (fires only after the last targeted vacuum has docked)
+  - **Optional**: Yes
 
 {% enddetails %}
 
@@ -183,10 +188,15 @@ automation:
         behavior: first
 ```
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `target`       | no       | The `vacuum` entity to monitor. |
-| `behavior`     | yes      | Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum encounters an error), `first` (fires only when the first targeted vacuum encounters an error), `last` (fires only after the last targeted vacuum has encountered an error). |
+- **Data attribute**: `target`
+  - **Description**: The `vacuum` entity to monitor.
+  - **Optional**: No
+- **Data attribute**: `behavior`
+  - **Description**: Controls which events trigger the automation when multiple vacuums are targeted. Options:
+    - `any` (fires every time any targeted vacuum encounters an error)
+    - `first` (fires only when the first targeted vacuum encounters an error)
+    - `last` (fires only after the last targeted vacuum has encountered an error)
+  - **Optional**: Yes
 
 {% enddetails %}
 
@@ -217,10 +227,15 @@ automation:
         behavior: first
 ```
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `target`       | no       | The `vacuum` entity to monitor. |
-| `behavior`     | yes      | Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum pauses cleaning), `first` (fires only when the first targeted vacuum pauses cleaning), `last` (fires only after the last targeted vacuum has paused cleaning). |
+- **Data attribute**: `target`
+  - **Description**: The `vacuum` entity to monitor.
+  - **Optional**: No
+- **Data attribute**: `behavior`
+  - **Description**: Controls which events trigger the automation when multiple vacuums are targeted. Options:
+    - `any` (fires every time any targeted vacuum pauses cleaning)
+    - `first` (fires only when the first targeted vacuum pauses cleaning)
+    - `last` (fires only after the last targeted vacuum has paused cleaning).
+  - **Optional**: Yes
 
 {% enddetails %}
 
@@ -251,10 +266,15 @@ automation:
         behavior: first
 ```
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `target`       | no       | The `vacuum` entity to monitor. |
-| `behavior`     | yes      | Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum starts cleaning), `first` (fires only when the first targeted vacuum starts cleaning), `last` (fires only after the last targeted vacuum has started cleaning). |
+- **Data attribute**: `target`
+  - **Description**: The `vacuum` entity to monitor.
+  - **Optional**: No
+- **Data attribute**: `behavior`
+  - **Description**: Controls which events trigger the automation when multiple vacuums are targeted. Options:
+    - `any` (fires every time any targeted vacuum starts cleaning)
+    - `first` (fires only when the first targeted vacuum starts cleaning)
+    - `last` (fires only after the last targeted vacuum has started cleaning)
+  - **Optional**: Yes
 
 {% enddetails %}
 
@@ -285,10 +305,15 @@ automation:
         behavior: first
 ```
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `target`       | no       | The `vacuum` entity to monitor. |
-| `behavior`     | yes      | Controls which events trigger the automation when multiple vacuums are targeted. Options: `any` (fires every time any targeted vacuum starts returning to the dock), `first` (fires only when the first targeted vacuum starts returning), `last` (fires only after the last targeted vacuum has started returning). |
+- **Data attribute**: `target`
+  - **Description**: The `vacuum` entity to monitor.
+  - **Optional**: No
+- **Data attribute**: `behavior`
+  - **Description**: Controls which events trigger the automation when multiple vacuums are targeted. Options:
+    - `any` (fires every time any targeted vacuum starts returning to the dock)
+    - `first` (fires only when the first targeted vacuum starts returning)
+    - `last` (fires only after the last targeted vacuum has started returning).
+  - **Optional**: Yes
 
 {% enddetails %}
 
@@ -329,10 +354,14 @@ automation:
         behavior: all
 ```
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `target`       | no       | The `vacuum` entity to check. |
-| `behavior`     | yes      | How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is cleaning), `all` (passes only if all targeted vacuums are cleaning). |
+- **Data attribute**: `target`
+  - **Description**: The `vacuum` entity to check.
+  - **Optional**: No
+- **Data attribute**: `behavior`
+  - **Description**: How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options:
+    - `any` (passes if at least one vacuum is cleaning)
+    - `all` (passes only if all targeted vacuums are cleaning)
+  - **Optional**: Yes
 
 {% enddetails %}
 
@@ -363,10 +392,14 @@ automation:
         behavior: all
 ```
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `target`       | no       | The `vacuum` entity to check. |
-| `behavior`     | yes      | How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is docked), `all` (passes only if all targeted vacuums are docked). |
+- **Data attribute**: `target`
+  - **Description**: The `vacuum` entity to check.
+  - **Optional**: No
+- **Data attribute**: `behavior`
+  - **Description**: How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options:
+    - `any` (passes if at least one vacuum is docked)
+    - `all` (passes only if all targeted vacuums are docked)
+  - **Optional**: Yes
 
 {% enddetails %}
 
@@ -397,10 +430,14 @@ automation:
         behavior: all
 ```
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `target`       | no       | The `vacuum` entity to check. |
-| `behavior`     | yes      | How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is in an error state), `all` (passes only if all targeted vacuums are in an error state). |
+- **Data attribute**: `target`
+  - **Description**: The `vacuum` entity to check.
+  - **Optional**: No
+- **Data attribute**: `behavior`
+  - **Description**: How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options:
+    - `any` (passes if at least one vacuum is in an error state)
+    - `all` (passes only if all targeted vacuums are in an error state)
+  - **Optional**: Yes
 
 {% enddetails %}
 
@@ -431,10 +468,14 @@ automation:
         behavior: all
 ```
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `target`       | no       | The `vacuum` entity to check. |
-| `behavior`     | yes      | How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is paused), `all` (passes only if all targeted vacuums are paused). |
+- **Data attribute**: `target`
+  - **Description**: The `vacuum` entity to check.
+  - **Optional**: No
+- **Data attribute**: `behavior`
+  - **Description**: How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options:
+    - `any` (passes if at least one vacuum is paused)
+    - `all` (passes only if all targeted vacuums are paused)
+  - **Optional**: Yes
 
 {% enddetails %}
 
@@ -465,10 +506,14 @@ automation:
         behavior: all
 ```
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `target`       | no       | The `vacuum` entity to check. |
-| `behavior`     | yes      | How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one vacuum is returning to the dock), `all` (passes only if all targeted vacuums are returning to the dock). |
+- **Data attribute**: `target`
+  - **Description**: The `vacuum` entity to check.
+  - **Optional**: No
+- **Data attribute**: `behavior`
+  - **Description**: How to evaluate when multiple vacuums are targeted. Defaults to `any` if not specified. Options:
+    - `any` (passes if at least one vacuum is returning to the dock)
+    - `all` (passes only if all targeted vacuums are returning to the dock)
+  - **Optional**: Yes
 
 {% enddetails %}
 
@@ -492,74 +537,82 @@ Before calling one of these actions, make sure your vacuum platform supports it.
 
 The `vacuum.start` action starts or resumes a cleaning task.
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `entity_id`    | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific vacuum. Use `entity_id: all` to target all vacuums.
+  - **Optional**: Yes
 
 ### Pause vacuum
 
 The `vacuum.pause` action pauses a cleaning task.
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `entity_id`    | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific vacuum. Use `entity_id: all` to target all vacuums.
+  - **Optional**: Yes
 
 ### Stop vacuum
 
 The `vacuum.stop` action stops the current activity of the vacuum.
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `entity_id`    | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific vacuum. Use `entity_id: all` to target all vacuums.
+  - **Optional**: Yes
 
 ### Return vacuum to base
 
 The `vacuum.return_to_base` action tells the vacuum to return home.
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `entity_id`    | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific vacuum. Use `entity_id: all` to target all vacuums.
+  - **Optional**: Yes
 
 ### Locate vacuum
 
 The `vacuum.locate` action locates the vacuum cleaner robot.
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `entity_id`    | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific vacuum. Use `entity_id: all` to target all vacuums.
+  - **Optional**: Yes
 
 ### Clean spot
 
 The `vacuum.clean_spot` action tells the vacuum cleaner to do a spot clean-up.
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `entity_id`    | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific vacuum. Use `entity_id: all` to target all vacuums.
+  - **Optional**: Yes
 
 ### Clean area
 
 The `vacuum.clean_area` action tells the vacuum to clean one or more Home Assistant areas. To use this action, the vacuum's [segments must first be mapped to areas](#mapping-your-vacuum-areas-to-home-assistant-areas).
 
-| Data attribute     | Optional | Description |
-| ------------------ | -------- | ----------- |
-| `entity_id`        | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
-| `cleaning_area_id` | no       | List of areas for the vacuum to clean. |
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific vacuum. Use `entity_id: all` to target all vacuums.
+  - **Optional**: Yes
+- **Data attribute**: `cleaning_area_id`
+  - **Description**: List of areas for the vacuum to clean.
+  - **Optional**: No
 
 ### Set vacuum fan speed
 
 The `vacuum.set_fan_speed` action sets the fan speed of the vacuum. The `fanspeed` can be a label, as `balanced` or `turbo`, or be a number; it depends on the `vacuum` platform.
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `entity_id`    | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
-| `fan_speed`    | no       | Platform dependent vacuum cleaner fan speed, with speed steps, like 'medium', or by percentage, between 0 and 100. |
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific vacuum. Use `entity_id: all` to target all vacuums.
+  - **Optional**: Yes
+- **Data attribute**: `fan_speed`
+  - **Description**: Platform-dependent vacuum cleaner fan speed, with speed steps like `medium`, or by percentage between 0 and 100.
+  - **Optional**: No
 
 ### Send command to vacuum
 
 The `vacuum.send_command` action sends a platform-specific command to the vacuum cleaner.
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `entity_id`    | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
-| `command`      | no       | Command to execute. |
-| `params`       | yes      | Parameters for the command. |
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific vacuum. Use `entity_id: all` to target all vacuums.
+  - **Optional**: Yes
+- **Data attribute**: `command`
+  - **Description**: Command to execute.
+  - **Optional**: No
+- **Data attribute**: `params`
+  - **Description**: Parameters for the command.
+  - **Optional**: Yes
