@@ -126,7 +126,8 @@ automation:
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The `vacuum.docked` trigger fires when the vacuum cleaner docks.
+The **Vacuum returned to dock** trigger fires when the vacuum cleaner docks.
+In YAML, refer to it with `vacuum.docked`.
 
 For example, to trigger the automation after both of your vacuums dock, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -159,7 +160,8 @@ automation:
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The `vacuum.errored` trigger fires when the vacuum cleaner encounters an error.
+The **Vacuum encountered an error** trigger fires when the vacuum cleaner reports an error.
+In YAML, refer to it with `vacuum.errored`.
 
 For example, to trigger the automation as soon as one of the vacuums reports an error, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -192,7 +194,8 @@ automation:
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The `vacuum.paused_cleaning` trigger fires when the vacuum cleaner pauses its cleaning run.
+The **Vacuum cleaner paused cleaning** trigger fires when the vacuum cleaner pauses its cleaning run.
+In YAML, refer to it with `vacuum.paused_cleaning`.
 
 For example, to trigger the automation as soon as one of the vacuums pauses cleaning, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -225,7 +228,8 @@ automation:
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The `vacuum.started_cleaning` trigger fires when the vacuum cleaner begins a cleaning run.
+The **Vacuum cleaner started cleaning** trigger fires when the vacuum cleaner begins a cleaning run.
+In YAML, refer to it with `vacuum.started_cleaning`.
 
 For example, to trigger the automation as soon as one of the vacuums starts cleaning, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -258,7 +262,8 @@ automation:
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The `vacuum.started_returning` trigger fires when the vacuum cleaner starts heading back to its dock.
+The **Vacuum cleaner started returning to dock** trigger fires when the vacuum cleaner starts heading back to its dock.
+In YAML, refer to it with `vacuum.started_returning`.
 
 For example, to trigger the automation as soon as one of the vacuums starts returning to the dock, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -301,7 +306,8 @@ To learn more about these conditions, see [Entity conditions](/docs/automation/c
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The `vacuum.is_cleaning` condition passes when the vacuum cleaner is cleaning.
+The **Vacuum cleaner is cleaning** condition passes when the vacuum cleaner is cleaning.
+In YAML, refer to it with `vacuum.is_cleaning`.
 
 For example, to let the automation continue only when both vacuums are cleaning, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -334,7 +340,8 @@ automation:
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The `vacuum.is_docked` condition passes when the vacuum cleaner is docked.
+The **Vacuum cleaner is docked** condition passes when the vacuum cleaner is docked.
+In YAML, refer to it with `vacuum.is_docked`.
 
 For example, to let the automation continue only when both vacuums are docked, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -367,7 +374,8 @@ automation:
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The `vacuum.is_encountering_an_error` condition passes when the vacuum cleaner is in an error state.
+The **Vacuum cleaner is encountering an error** condition passes when the vacuum cleaner is in an error state.
+In YAML, refer to it with `vacuum.is_encountering_an_error`.
 
 For example, to let the automation continue only when both vacuums are in an error state, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -400,7 +408,8 @@ automation:
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The `vacuum.is_paused` condition passes when the vacuum cleaner is paused.
+The **Vacuum cleaner is paused** condition passes when the vacuum cleaner is paused.
+In YAML, refer to it with `vacuum.is_paused`.
 
 For example, to let the automation continue only when both vacuums are paused, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
@@ -433,7 +442,8 @@ automation:
 
 {% include integrations/labs_entity_triggers_note.md %}
 
-The `vacuum.is_returning` condition passes when the vacuum cleaner is returning to the dock.
+The **Vacuum cleaner is returning** condition passes when the vacuum cleaner is returning to the dock.
+In YAML, refer to it with `vacuum.is_returning`.
 
 For example, to let the automation continue only when both vacuums are returning to the dock, select the following when you [create an automation](#creating-an-automation-with-a-vacuum-trigger):
 
